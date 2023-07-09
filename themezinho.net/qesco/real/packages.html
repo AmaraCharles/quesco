@@ -22,9 +22,26 @@
   <div class="content">
     <div class="container">
         
-    <h1>Main Content Area</h1>
-    <p>This is the main content area.</p>
-    <div class="panel-body p-0" style="max-width: 500px;">
+    <h1>All packages</h1>
+    <p>This is all your packages</p>
+
+    <div class="table-container">
+        <table id="table-responsive" class="table">
+          <tr>
+            <th>User</th>
+            <th>Tracking ID</th>
+            <th>Edit</th>
+            <th>View</th>
+            
+            <!-- Add more header columns if needed -->
+          </tr>
+          <tbody class="table-body">
+        </tbody>
+      
+          <!-- Add more rows if needed -->
+        </table>
+      </div>
+    <!-- <div class="panel-body p-0" style="max-width: 500px;">
         <table id="table-responsive" class=" table table-hover table table-bordere table-td-valign-middle">
           <thead>
             <tr>
@@ -39,7 +56,7 @@
         
         </table> 
 
-      </div>
+      </div> -->
 
   </div>
 
@@ -91,8 +108,8 @@
             $('<td>').text(`${user.receiverEmail}`).appendTo(row);
                 $('<td>').text(`${user._id}`).appendTo(row);
           
-            $('<td><a  class="btn-primary btn-lg pl-10 w-20 mr-3 m-5" onclick="sendUserDetail(\''+user._id+'\')"  >Edit</a> </td>').appendTo (row);
-            $('<td><a  class="btn-primary btn-lg pl-10 w-20 mr-3 m-5" onclick="viewUserDetail(\''+user._id+'\')"  >view </a> </td>').appendTo (row);
+            $('<td><a style="display:inline-block;white-space: nowrap;"  class="btn-primary btn-lg pl-1 w-20 mr-3" onclick="sendUserDetail(\''+user._id+'\')"  >Edit</a> </td>').appendTo (row);
+            $('<td><a style="display:inline-block;white-space: nowrap;" class="btn-primary btn-lg pl-1 w-20 mr-3 " onclick="viewUserDetail(\''+user._id+'\')"  >view </a> </td>').appendTo (row);
            
             tbl.appendTo($(".table"));
     
