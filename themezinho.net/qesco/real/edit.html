@@ -9,16 +9,33 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="navbar">
-    <a href="dashboard.html" class="active">Dashboard</a>
-    <a href="#">Packages</a>
-    <a href="#"></a>
-    <a href="#">Link 4</a>
-    <a href="javascript:void(0);" class="icon" onclick="toggleNavbar()">
-      <i class="fa fa-bars">icon</i>
-    </a>
-  </div>
-
+    <div class="navbarr">
+        <a href="dashboard.html" class="active">Dashboard</a>
+        <a href="#">Packages</a>
+        <a href="#"></a>
+        <a href="#">Link 4</a>
+        <a href="javascript:void(0);" class="icon" onclick="toggleNavbar()">
+          <!-- <i class="fa fa-bars">icon</i> -->
+          toggle
+        </a>
+      </div>
+      <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Logo</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Dashboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Packages</a>
+            </li>
+            
+          </ul>
+        </div>
+      </nav>
   <div class="content">
     <div class="container">
         <div class="row align-items-center justify-content-center">
@@ -157,11 +174,7 @@
                         </form>
                     </div>
                     <div class="fxt-footer">
-                        <div class="fxt-transformY-50 fxt-transition-delay-9">
-                            <p>Already have an account?<a href="login.html"
-                                    class="switcher-text2 inline-text">Login</a>
-                            </p>
-                        </div>
+                        <div><span style="color:blue;">If form fails to submit on first submission,please retry or check the "packages" page for the package you tried to create</span></div>
                     </div>
                 </div>
             </div>

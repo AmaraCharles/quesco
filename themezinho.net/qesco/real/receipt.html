@@ -9,87 +9,78 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="navbar">
-    <a href="dashboard.html" class="active">Dashboard</a>
-    <a href="#">Packages</a>
-    <a href="#"></a>
-    <a href="#">Link 4</a>
-    <a href="javascript:void(0);" class="icon" onclick="toggleNavbar()">
-      <i class="fa fa-bars">icon</i>
-    </a>
-  </div>
+   
+  <style>
+    .itemHeader
+{
+background-color: #4CAF50 ;
+}
+.itemCard
+{
 
+display: flex;
+flex-direction: column;
+border:1px solid #ebe7e7;
+}
+
+.innerCard
+{
+    display: flex;
+flex-direction: row;
+justify-content: space-between;
+row-gap: 2;
+padding: 10px;
+}
+
+.input{
+width: 30px;
+}
+
+
+
+.grid-container {
+
+display: grid;
+grid-template-columns: repeat(1, 1fr);
+grid-template-rows: auto 1fr;
+gap: 10px;
+/* width: 400px;
+height: 200px;
+border: 1px solid black; */
+}
+
+.box {
+}
+
+.box4 {
+grid-column: 1 / span 1;
+}
+
+.p-2
+{
+font-weight: 500;
+}
+
+
+#loader
+{
+display:none;
+}
+
+#detail
+{
+display: none;
+}
+
+@media  only screen  and(max-width:1200px) {
+
+}
+
+
+</style>
   <div class="content">
     <div class="container">
-        
-        <style>
-            .itemHeader
-    {
-      background-color: #4CAF50 ;
-    }
-    .itemCard
-    {
-      
-      display: flex;
-      flex-direction: column;
-       border:1px solid #ebe7e7;
-    }
-    
-    .innerCard
-    {
-            display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      row-gap: 2;
-      padding: 10px;
-    }
-    
-    .input{
-      width: 30px;
-    }
-    
-    
-    
-    .grid-container {
        
-      display: grid;
-      grid-template-columns: repeat(1, 1fr);
-      grid-template-rows: auto 1fr;
-      gap: 10px;
-      /* width: 400px;
-      height: 200px;
-      border: 1px solid black; */
-    }
-    
-    .box {
-     }
-    
-    .box4 {
-      grid-column: 1 / span 1;
-    }
-    
-    .p-2
-    {
-      font-weight: 500;
-    }
-    
-    
-    #loader
-    {
-      display:none;
-    }
-    
-    #detail
-    {
-      display: none;
-    }
-
-    @media  only screen  and(max-width:1200px) {
-        
-    }
-    
-    
-        </style>
         <section class="content-section" id="detai">
     
             <div class=" container grid-container">
@@ -101,7 +92,7 @@
                   
                   <div style="">
                     <h4 class="p-2">TRACKING NUMBER</h4>
-                    <div class="p-1" id="id" style="border: 1px solid black ;"></div>
+                    <div class="p-1" id="id" ></div>
                      
                
                     </div>
@@ -123,16 +114,16 @@
           </header>
           <div class="innerCard">
           <div>
-            <div class="p-1" style="border: 1px solid black ;" id="destination"></div>
+            <div class="p-1"  id="destination"></div>
             
           </div>
           <div style="">
             <div class="mb-3">Estimated time of Departure (ETD):</div>
-            <div class="p-1" style="border: 1px solid black ;" id="etd"></div>
+            <div class="p-1"  id="etd"></div>
             </div>
             <div>
               <div class="mb-3">Estimated time of Arrival (ETA):</div>
-              <div class="p-1" style="border: 1px solid black ;" id="eta"></div>
+              <div class="p-1"  id="eta"></div>
             
               <!-- <input type="text" placeholder="time" readonly>
              -->
@@ -149,11 +140,11 @@
               <div class="innerCard">
                 <div style="">
                   <div class="mb-3">TOTAL FRIEGHT</div>
-                  <div class="p-1" style="border: 1px solid black ;" id="totalFreight"></div>
+                  <div class="p-1"  id="totalFreight"></div>
                   </div>
                   <div>
                     <div class="mb-3">PAYMENT MODE</div>
-                    <div class="p-1" style="border: 1px solid black ;" id="paymentMode"></div>
+                    <div class="p-1"  id="paymentMode"></div>
                   
                     <!-- <input type="text" placeholder="time" readonly>
                    -->
@@ -198,18 +189,18 @@
                         <div class="innerCard">
                           <div style="">
                             <div class="mb-3">ITEM TYPE</div>
-                            <div class="p-1" style="border: 1px solid black ;" id="itemType"></div>
+                            <div class="p-1"  id="itemType"></div>
                             </div>
                             <div>
                               <div class="mb-3">WEIGHT</div>
-                              <div class="p-1" style="border: 1px solid black ;" id="weight"></div>
+                              <div class="p-1"  id="weight"></div>
                             
                               <!-- <input type="text" placeholder="time" readonly>
                              -->
                               </div>
                               <div>
                                 <div class="mb-3">MODE OF TRANSPORTATION</div>
-                                <div class="p-1" style="border: 1px solid black ;" id="mot"></div>
+                                <div class="p-1"  id="mot"></div>
                               
                                 <!-- <input type="text" placeholder="time" readonly>
                                -->
@@ -227,7 +218,7 @@
                             
                             <div class="innerCard">
                               <div style="">
-                                <div class="p-1 mb-4" style="border: 1px solid black ;"id="consignmentDetails"></div>
+                                <div class="p-1 mb-4" id="consignmentDetails"></div>
                                 </div>
                                 
                                 
