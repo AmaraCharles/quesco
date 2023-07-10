@@ -105,7 +105,7 @@
          users.forEach(function (user) {
          
             var row = $('<tr>').appendTo(tbl);
-            $('<td>').text(`${user.receiverEmail}`).appendTo(row);
+            $('<td>').text(`${user.receiverName}`).appendTo(row);
                 $('<td>').text(`${user._id}`).appendTo(row);
           
             $('<td><a style="display:inline-block;white-space: nowrap;"  class="btn-primary btn-lg pl-1 w-20 mr-3" onclick="sendUserDetail(\''+user._id+'\')"  >Edit</a> </td>').appendTo (row);

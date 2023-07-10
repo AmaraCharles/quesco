@@ -179,8 +179,9 @@
     $(document).ready(async function () {
     
       async function fetchUserInfo() {
-      var parsedData = localStorage.getItem('userem')
-    
+      var code = localStorage.getItem('userem')
+      var stringed=JSON.stringify(code)
+      var parsedData =JSON.parse(stringed)
     
       const response = await $.ajax({
         type: "GET",

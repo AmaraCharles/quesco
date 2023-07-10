@@ -10,7 +10,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.0/html2canvas.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.3/jspdf.umd.min.js"></script>
-    
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script> 
     <title>Document</title>
 </head>
 <body>
@@ -88,12 +88,12 @@
               
               <div style="">
                 <h4 class="p-2">TRACKING NUMBER</h4>
-                <div class="p-1" style="border: 1px solid black ;"></div>
+                <div class="p-1" style="border: 1px solid black ;" id="id"></div>
                  
            
                 </div>
                   <div style="">
-                    <div>DATE</div>
+                    <div id="date"></div>
                      </div>
                   
                 
@@ -168,7 +168,7 @@
                     <h3 class="mb-3" >shipper's details</h3>
                     <span class="p-2">Name:<span id="senderName"></span></span>
                     <span class="p-2">Email:<span id="senderEmail"></span></span>
-                    <span class="p-2">Address:<span id="senderAddress"> heyy</span></span>
+                    <span class="p-2">Address:<span id="senderAddress"></span></span>
                    
                    
                     <!-- <input type="text" placeholder="time" readonly>
@@ -234,7 +234,59 @@
       <button onclick="savePageAsPDF()">save as pdf</button> -->
     
       </section>
+      <script>
 
+        var currentUser = {};
+        
+        
+        $(document).ready(async function () {
+        
+          async function fetchUserInfo() {
+           
+          var userDetails= localStorage.getItem('user')
+        
+        var user= JSON.parse(userDetails)
+         
+        
+          return user;
+        }
+        
+          const userInfo = await fetchUserInfo();
+        console.log(userInfo);
+          $('#eta').text(userInfo.eta)
+          $('#etd').text(userInfo.etd)
+          $('#destination').text(userInfo.destination)
+          $('#serviceType').text(userInfo.serviceType)
+          $('#receiverName').text(userInfo.receiverName)
+          $('#receiverEmail').text(userInfo.receiverEmail)
+          $('#receiverAddress').text(userInfo.receiverAddress)
+          $('#senderName').text(userInfo.senderName)
+          $('#senderEmail').text(userInfo.senderEmail)
+          $('#senderAddress').text(userInfo.senderAddress)
+          $('#paymentMode').text(userInfo.paymentMode)
+          $('#deliveryDay').text(userInfo.deliveryDay)
+          $('#weight').text(userInfo.weight)
+          $('#itemType').text(userInfo.itemType)
+          $('#consignmentDetails').text(userInfo.consignmentDetails)
+          $('#mot').text(userInfo.mot)
+          $('#location').text(userInfo.location)
+          $('#id').text(userInfo._id)
+          $('#date').text(userInfo.date)
+          $('#totalFreight').text(userInfo.totalFreight)
+          $('#id').text(userInfo._id)
+         
+        
+        
+        
+         });
+          
+        
+          
+           
+        
+          </script>
+        
+    
 
       <script>
         function captureScreenAndConvertToPDF() {
