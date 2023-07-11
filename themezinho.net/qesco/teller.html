@@ -19,7 +19,7 @@
 <script src="./teller_files/jspdf.umd.min.js.download"></script>
 <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script> 
 
-	<title>Global Sureline Cargo Company</title>
+	<title>Bevglobal Logistics</title>
 
 	<!-- Standard Favicon -->
 	<link rel="icon" type="image/x-icon" href="http://globalsurelinecargos.com/images/favicon.png">
@@ -32,6 +32,35 @@
 	font-weight: bold;
 	color: #FF0000;
 }
+
+#map-container {
+      width: 100%;
+      height: 250px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .scrolling-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 15px;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+      white-space: nowrap;
+      animation: scroll 10s linear infinite;
+    }
+
+    @keyframes scroll {
+      0% {
+        transform: translate(-50%, -50%);
+      }
+
+      100% {
+        transform: translate(-50%, -50%) translateY(-100%);
+      }
+    }
 </style>
 </head>
 
@@ -46,7 +75,7 @@
       <td width="27%">&nbsp;</td>
     </tr>
     <tr>
-      <td colspan="2"><img src="./teller_files/logo.png" width="63%" height="67"></td>
+      <td colspan="2"><img src="./teller_files/logo.png" width="50%" height="60"></td>
       <td>&nbsp;</td>
       <td>&nbsp;</td>
     </tr>
@@ -94,7 +123,7 @@
       <td width="36%" class="pry"><div align="center"><strong>DESTINATION:</strong></div></td>
       <td width="64%" class="pry2"><strong>SHIPMENT DATE</strong></td>
     </tr>
-    <tr><td style="text-align: center; color: brown; font-weight: 500;">hey</td></tr>
+    <tr><td style="text-align: center; color: brown; font-weight: 500;"></td></tr>
   </tbody></table>
   
 </div>
@@ -285,15 +314,22 @@
     <tbody><tr>
       <td class="pryma"><strong>Current Location</strong></td>
     </tr>
+    <tr></tr>
   </tbody></table>
 </div>
 
+</div>
+<div id="map-container">
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193747.3920864414!2d-74.0064!3d40.7144!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259da88f23223%3A0x6c76bfae9e895b1e!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2s!4v1625926926706!5m2!1sen!2s" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+  <div class="scrolling-text" style="background-color: white;padding:5px; color:black; display: flex;justify-content: center; align-items: center;">There were no certificates in your package, such as the DHS Tag and INC Certificates.</div>
 </div>
 <div class="sepylocation"></div>
 <div id="map">
 <div class="uma"></div>
 <div class="mapwrite">
- <marquee behavior="alternate" direction="left">
+  
+
+ <!-- <marquee behavior="alternate" direction="left">
   <table width="100%" border="0">
     <tbody><tr>
    
@@ -301,7 +337,7 @@
      
     </tr>
   </tbody></table>
-  </marquee>
+  </marquee> -->
 </div>
 </div>
 
