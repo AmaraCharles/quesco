@@ -154,7 +154,7 @@
                             <div class="form-group">
                                 <div class="fxt-transformY-50 fxt-transition-delay-1">
                                     <input  id="location" class="form-control"
-                                        name="lastname" placeholder="location" >
+                                        name="lastname" placeholder="Shipment activity" >
                                 </div>
                             </div>
                             
@@ -410,102 +410,7 @@ location
     
       </script>
     
-    <script>
-
-        var btn=document.getElementById('#confirmPayment');
-        function red () {
-                btn.style.opacity="1"
-                btn.innerHTML="submit proof"
-        
-                               }
-        
-        function blurr (){
-            
-            btn.style.opacity="0.5"
-            btn.innerHTML= "Processing . . ."
            
-        }
-            var btn=document.getElementById('#confirmPayment');
-        function red () {
-                btn.style.opacity="1"
-                btn.innerHTML="submit payment"
-        
-                               }
-        
-        function blurr (){
-            
-            btn.style.opacity="0.5"
-            btn.innerHTML= "Processing . . ."
-           
-        }
-            $(document).ready(
-        
-        )
-            
-        
-            async function depositFnc(dataObj) {
-        
-              await $.ajax({
-                type: "POST",
-                url: `https://quesco-sserver.onrender.com/transactions/${dataObj.userId}/deposit`,
-                dataType: "json",
-                data: { ...dataObj },
-                timeout: 30000,
-                success: function (data) {
-                    console.log(data)
-                    swal({
-                                         title: "Deposit",
-                                         text: "Deposit was successfully sent. Please wait a few minutes for account update",
-                                         type:"success",
-                                          timer: 3000
-                                        }),
-                                            setTimeout(function(){location.href="./receipt.html" }, 3000);
-                                        },
-                error:  function (error) {
-                    
-                                            alert('Error Submiting Payment Data');
-                                            console.log(error);
-                                            red()
-                                        }
-                // function (xhr, status, error) {
-                //   console.log(error);
-                //   $('.live-section').html("").addClass('alert-danger')
-                // }
-            });
-        
-    }
-        
-            
-        
-            async function fetchUserId() {
-              var parsedData = await localStorage.getItem('user')
-              var user = JSON.parse((parsedData))
-        alert(user)
-              console.log(user);
-              return user;
-            }
-        
-        
-            async function confirmIt (e) {
-                
-              var dataBtn=document.getElementById('confirmPayment')
-            dataBtn.innerHTML="Processing...";
-            dataBtn.style.opacity='0.5'
-        
-             
-            //   e.preventDefault(); // prevents page reload
-              const date = $('#dt').val();
-              const time = $('#tm').val();
-              const ltn= $('#ltn').val();
-              const status= $('#status').val();
-              const user = await fetchUserId();
-              const userId = user._id;
-             
-        console.log(date,time,ltn,status)
-              await depositFnc({ date, time, ltn, userId, status});
-            };
-          </script>
-        
     
   <script src="script.js"></script>
 </body>
