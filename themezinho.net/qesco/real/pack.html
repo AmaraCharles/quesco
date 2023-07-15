@@ -5,20 +5,23 @@
   <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="../admin/login_files/bootstrap.min.css">
-   
+<script src="https://kit.fontawesome.com/5a62f8e544.js" crossorigin="anonymous"></script>  
+<script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
+
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="navbarr">
         <a href="dashboard.html" class="active">Dashboard</a>
-        <a href="#">Packages</a>
-        <a href="javascript:void(0);" class="icon" onclick="toggleNavbar()">
-          <!-- <i class="fa fa-bars">icon</i> -->
-          toggle
-        </a>
+        <a href="packages.html">Packages</a>
+        <a href="trackingHistory.html">Tracking History</a>
+        
       </div>
       <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Bevglobal</a>
+        <a class="navbar-brand" href="dashboard.html">Bevglobal</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -30,15 +33,20 @@
             <li class="nav-item">
               <a class="nav-link" href="packages.html">Packages</a>
             </li>
-            
+            <li class="nav-item">
+              <a class="nav-link" href="trackingHistory.html">Tracking History</a>
+            </li>
+           
           </ul>
         </div>
       </nav>
           <div class="content">
         <div class="container">
-            
+            <div class="live-section"></div>
         <h1>Tracking History</h1>
-       
+        <h6>Receiver: <span id="receiverName"></span></h6>
+        <h6>Tracking ID: <span id="id"></span></h6>
+      
         <div class="table-container">
             <table id="table-responsive" class="table">
               <tr>
@@ -75,6 +83,7 @@
          <form id="confirmPayment">
           <div class="track mt-5" style="display: flex;flex-direction: column; justify-content: center; max-width: 500px; margin-top: 20px;">
             <h3>ADD TRACKING HISTORY</h3>
+            
             <div class="form-group">
                 <div class="fxt-transformY-50 fxt-transition-delay-1">
                     <input  id="dt" class="form-control"
@@ -104,7 +113,7 @@
            
             </div>
             <div class="form-group">
-              <button type="submit" class="btn btn-lg btn-primary btn-teal">
+              <button type="submit" class="btn  btn-lg btn-primary btn-teal">
                 ADD
               </button>
                  </div>
@@ -144,11 +153,21 @@
     
       return response.data;
     }
+
+    $('.btn').click(function(){
+      var btn=$('.btn')
+      btn.text('...')
+    })
+
+    
     
       const userInfo = await fetchUserInfo();
       const userInfoString=JSON.stringify(userInfo)
     const user=localStorage.setItem("user",userInfoString)
 
+    $('#receiverName').text(userInfo.receiverName)
+    $('#id').text(userInfo._id)
+   
     
     var tbl = $('.table-body');
     var td=$('<td>');
@@ -194,7 +213,10 @@
       timeout: 30000,
       success: function (data) {
         console.log(data);
-        $('.live-section').html("Deposit was successful").addClass('alert-success')
+        $('.live-section').html(" Tracking history added").addClass('alert-success')
+        setTimeout(function () {$(location).prop('href', './pack.html')     
+              }, 1000 * 2)
+
       },
       error: function (xhr, status, error) {
         console.log(error);
