@@ -105,8 +105,8 @@
       </div></td>
     </tr>
     <tr>
-      <td style=" padding-bottom: 10px;"><strong><font color="#991700" >Tracking Results</font></strong></td>
-      <td colspan="2" class="fclasss" id="id" style="font-size: 15px; padding-bottom: 10px;">63a41610d857e266e4590dcd</td>
+      <td style=" padding-bottom: 10px;"><strong><font color="#991700" >Tracking Results for:</font></strong></td>
+      <td colspan="2" class="fclasss" id="id" style="font-size: 15px; padding-bottom: 10px;"></td>
       <td><div align="right">
         2023-07-11        
       </div></td>
@@ -123,7 +123,7 @@
       <td width="36%" class="pry"><div align="center"><strong>DESTINATION:</strong></div></td>
       <td width="64%" class="pry2"><strong>SHIPMENT DATE</strong></td>
     </tr>
-    <tr><td style="text-align: center; color: brown; font-weight: 500;"></td></tr>
+    <tr><td style="text-align: center; color: brown; font-weight: 500;" id="destination"></td></tr>
   </tbody></table>
   
 </div>
@@ -360,8 +360,8 @@
 
 </div>
 <div class="one1a">
-  <table width="100%" border="0">
-    <tbody><tr>
+  <table class="table" width="100%" border="0">
+    <tbody class="table-body"><tr>
       <td width="14%" class="smallfontb"><div align="center">Date</div></td>
       <td width="16%" class="smallfontb"><div align="center">Time</div></td>
       <td width="31%" class="smallfontb">Location</td>
@@ -396,8 +396,8 @@
 <!--the footer div  Starts here -->
 
 <div class="writeup">
-  <table width="100%" border="0">
-    <tbody><tr>
+  <table  width="100%" border="0">
+    <tbody  ><tr>
       <td width="14%">&nbsp;</td>
       <td width="14%">&nbsp;</td>
       <td width="5%">&nbsp;</td>
@@ -406,47 +406,8 @@
       <td width="6%">&nbsp;</td>
       <td width="18%">&nbsp;</td>
       </tr>
-    <tr>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td><div align="center"><span class="text-center hidden-print"><a style="text-decoration:none" href="http://globalsurelinecargos.com/index.html">� Logout</a></span></div></td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      </tr>
-    <tr>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td><div align="center">
-        <h3>TRUSTED PARTNER</h3>
-      </div></td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-  </tbody></table>
-</div>
-<!--the footer div  Starts here -->
+   
+<table >
 </div>
 
 
@@ -502,6 +463,28 @@ var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
     $('#id').text(userInfo._id)
    
   
+
+    var tbl = $('.table-body');
+  var td=$('<td>');
+       userInfo.history.forEach(function (user) {
+       
+        console.log(user.dt);
+          var row = $('<tr>').appendTo(tbl);
+          $('<td>').text(`${user.dt}`).appendTo(row);
+              $('<td>').text(`${user.tm}`).appendTo(row);
+                $('<td>').text(`${user.ltn}`).appendTo(row);
+             
+                $('<td>').text(`${user.status}`).appendTo(row);
+        
+         
+          tbl.appendTo($(".table"));
+  
+         
+        
+  
+        })
+  
+
   
   
    });
@@ -511,6 +494,7 @@ var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
      
   
     </script>
+
   
 
 

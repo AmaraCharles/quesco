@@ -2,45 +2,42 @@
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
-
-  <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
-<link rel="stylesheet" href="../admin/login_files/bootstrap.min.css">
+ 
+  <link rel="stylesheet" href="../admin/login_files/bootstrap.min.css">
 <script src="https://kit.fontawesome.com/5a62f8e544.js" crossorigin="anonymous"></script>  
 <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js">
-<script src="./sweetalert.min.js.download"></script>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <link rel="stylesheet" href="style.css">
   
 </head>
 <body>
   <div class="navbarr">
     <a href="dashboard.html" class="active">Dashboard</a>
-    <a href="#">Packages</a>
-    <a href="javascript:void(0);" class="icon" onclick="toggleNavbar()">
-      <!-- <i class="fa fa-bars">icon</i> -->
-      toggle
-    </a>
+    <a href="packages.html">Packages</a>
+    <a href="trackingHistory.html">Tracking History</a>
+   
+    
   </div>
   <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Bevglobal</a>
+    <a class="navbar-brand" href="dashboard.html">Bevglobal</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
-      <ul class="navbar-nav ml-auto">
+     <ul class="navbar-nav ml-auto">
         <li class="nav-item active">
           <a class="nav-link" href="dashboard.html">Dashboard</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="packages.html">Packages</a>
         </li>
-        
+        <li class="nav-item">
+          <a class="nav-link" href="trackingHistory.html">Tracking History</a>
+        </li>
+       
       </ul>
     </div>
   </nav>
@@ -69,13 +66,6 @@
                                 <div class="fxt-transformY-50 fxt-transition-delay-1">
                                     <input  id="eta" class="form-control"
                                         name="" placeholder="eta" value="" >
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="">Date of receipt creation:</label>
-                                <div class="fxt-transformY-50 fxt-transition-delay-1">
-                                    <input  id="date" class="form-control"
-                                        name="" placeholder="date" value="" >
                                 </div>
                             </div>
                             <div class="form-group">
@@ -212,8 +202,7 @@
                 </div>
             </div>
         </div>
-    <h1>Main Content Area</h1>
-    <p>This is the main content area.</p>
+    
   </div>
 
 
@@ -293,32 +282,10 @@ function topFunction() {
    
 
          localStorage.setItem("email",receiverEmail)
-         console.log(  date,etd,
-eta,
-totalFreight,
-serviceType,
-destination,
-paymentMode,
-receiverName,
-receiverEmail,
-receiverAddress,
-deliveryDay,
-senderName,
-senderEmail,
-senderAddress,
-itemType,
-weight,
-mot,
-consignmentDetails,
-
-location)
-
+         
        
         
-         registerUser({ 
-etd,
-eta,
-date,
+         registerUser({ etd,eta,
 totalFreight,
 serviceType,
 destination,
@@ -340,13 +307,30 @@ location
 
          blurr();
          topFunction();
-         
+         console.log( etd,
+eta,
+totalFreight,
+serviceType,
+destination,
+paymentMode,
+receiverName,
+receiverEmail,
+receiverAddress,
+deliveryDay,
+senderName,
+senderEmail,
+senderAddress,
+itemType,
+weight,
+mot,
+consignmentDetails,
+
+location)
+
      });
 
  </script>
- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.9/dist/umd/popper.min.js"></script>
-
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
