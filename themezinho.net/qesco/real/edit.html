@@ -159,6 +159,13 @@
                             </div>
                             <div class="form-group">
                                 <div class="fxt-transformY-50 fxt-transition-delay-1">
+                                    <input  id="fmt" class="form-control"
+                                        name="lastname" placeholder="fmt" >
+                                </div>
+                            </div>
+                           
+                            <div class="form-group">
+                                <div class="fxt-transformY-50 fxt-transition-delay-1">
                                     <input  id="location" class="form-control"
                                         name="lastname" placeholder="Shipment activity" >
                                 </div>
@@ -229,7 +236,8 @@ function topFunction() {
       $('#etd').val(userInfo.etd)
       $('#destination').val(userInfo.destination)
       $('#totalFreight').val(userInfo.totalFreight)
-      
+      $('#fmt').val(userInfo.fmt)
+    
       $('#serviceType').val(userInfo.serviceType)
       $('#receiverName').val(userInfo.receiverName)
       $('#receiverEmail').val(userInfo.receiverEmail)
@@ -269,6 +277,7 @@ senderAddress,
 itemType,
 weight,
 mot,
+fmt,
 consignmentDetails,
 
 location})
@@ -289,6 +298,7 @@ senderAddress,
 itemType,
 weight,
 mot,
+fmt,
 consignmentDetails,
 
 location);
@@ -300,6 +310,7 @@ location);
         dataType: "json",
         data: {  etd,
 eta,
+fmt,
 totalFreight,
 serviceType,
 destination,
@@ -341,7 +352,8 @@ location },
      var totalFreight=$('#totalFreight').val()
     var destination=$('#destination').val()
     var paymentMode= $('#paymentMode').val()
-    
+    var fmt= $('#fmt').val()
+   
       var serviceType=$('#serviceType').val()
      var receiverName= $('#receiverName').val()
     var receiverEmail =$('#receiverEmail').val()
@@ -374,6 +386,7 @@ senderAddress,
 itemType,
 weight,
 mot,
+fmt,
 consignmentDetails,
 
 location
