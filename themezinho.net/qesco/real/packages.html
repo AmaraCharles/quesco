@@ -42,14 +42,15 @@
   </nav>
   <div class="content">
     <div class="container">
-        
+     <div class="live-section"></div> 
+     <div class=" container loader mb-4 p-4" id="loader"></div>  
     <h1>All packages</h1>
     <p>These are all your packages</p>
 
     <div class="table-container">
         <table id="table-responsive" class="table">
           <tr>
-            <th >User</th>
+            <th >Receiver</th>
             <th >Tracking ID</th>
             <th>Edit</th>
             <th>View</th>
@@ -84,7 +85,11 @@
 
  
   <script>
+function killLoader(){
+  var loader=document.getElementById('loader')
+  loader.style="display:none"
 
+}
  
     async function fetchUser() {
           const response = await $.ajax({
@@ -92,7 +97,10 @@
             url: 'https://quesco-sserver.onrender.com/users',
             dataType: "json",
             timeout: 30000,
-          });
+            success:killLoader()
+          },
+          
+          );
     
           console.log(response.data);
           return response.data
@@ -118,19 +126,21 @@
     
         
         $(document).ready(async function () {
+
+        
           const users = await fetchUser();
-           
+           const reversed=users.reverse()
     
           var tbl = $('.table-body');
     var td=$('<td>');
-         users.forEach(function (user) {
+         reversed.forEach(function (user) {
          
             var row = $('<tr>').appendTo(tbl);
             $('<td>').text(`${user.receiverName}`).appendTo(row);
-                $('<td>').text(`${user._id}`).appendTo(row);
+                $('<td>').text(`${user.trackingId}`).appendTo(row);
           
             $('<td><a style="display:inline-block;white-space: nowrap;"  class="btn-primary btn-lg pl-1 w-20 mr-3" onclick="sendUserDetail(\''+user._id+'\')"  >Edit</a> </td>').appendTo (row);
-            $('<td><a style="display:inline-block;white-space: nowrap;" class="btn-primary btn-lg pl-1 w-20 mr-3 " onclick="viewUserDetail(\''+user._id+'\')"  >view </a> </td>').appendTo (row);
+            $('<td><a style="display:inline-block;white-space: nowrap;" class="btn-success btn-lg pl-1 w-20 mr-3 " onclick="viewUserDetail(\''+user._id+'\')"  >view </a> </td>').appendTo (row);
            
             tbl.appendTo($(".table"));
     
@@ -140,7 +150,6 @@
           })
     
     
-          
          
         
         });
