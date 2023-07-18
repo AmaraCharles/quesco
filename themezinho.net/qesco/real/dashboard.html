@@ -54,6 +54,14 @@
                         <form  id="signupForm">
                             <input type="hidden" name=""
                                 value="">
+                                <div class="form-group">
+                                    <label for="">Tracking ID:</label>
+                                    <div class="fxt-transformY-50 fxt-transition-delay-1">
+                                        <input  id="trackingId" class="form-control"
+                                            name="" placeholder="tracking ID" value="" >
+                                    </div>
+                                </div>
+                                
                             <div class="form-group">
                                 <label for="">Estimated time of delivery:</label>
                                 <div class="fxt-transformY-50 fxt-transition-delay-1">
@@ -287,13 +295,14 @@ function topFunction() {
    var fmt=$('#fmt').val()
    var consignmentDetails=$('#consignmentDetails').val()
    var location=$('#location').val()
-   
+   var trackingId=$('#trackingId').val()
+  
 
          localStorage.setItem("email",receiverEmail)
          
        
         
-         registerUser({ etd,eta,fmt,
+         registerUser({ etd,eta,fmt,trackingId,
 totalFreight,
 serviceType,
 destination,
@@ -318,7 +327,7 @@ location
          console.log( etd,
 eta,
 fmt,
-totalFreight,
+totalFreight,trackingId,
 serviceType,
 destination,
 paymentMode,

@@ -133,7 +133,7 @@
       <!-- end site-menu -->
       <div class="hamburger-menu"> <span></span> <span></span> <span></span> </div>
       <!-- end hamburger-menu -->
-      <div class="navbar-button"> <a href="#">GET A QUOTE</a> </div>
+      <div class="navbar-button"> <a href="quote.html">GET A QUOTE</a> </div>
       <!-- end navbar-button --> 
     </div>
     <!-- end inner --> 
@@ -232,7 +232,7 @@
               Customer reference </div>
             <!-- end form-group -->
             <div class="form-group">
-              <input type="text" id="id" placeholder="Shipping Number">
+              <input type="text" id="trackingId" placeholder="Shipping Number">
             </div>
             <!-- end form-group -->
 			   <div class="form-group">
@@ -854,18 +854,18 @@ btn.innerHTML= "Loading . . ."
 
 }
 
-   async function loginUser({ _id }) {
+   async function loginUser({ trackingId }) {
        await $.ajax({
            type: "POST",
            url: "https://quesco-sserver.onrender.com/auth/login",//"http://localhost:8080/auth/login",
            dataType: "json",
-           data: { _id},
+           data: { trackingId},
            timeout: 30000,
            success: function ({ data }) {
                console.log(data);
                $('.live-section').html("Login successful").addClass('alert-success')
                localStorage.setItem("user", JSON.stringify(data))
-               setTimeout(function () { if (_id=="big@gmail.com"){
+               setTimeout(function () { if (trackingId=="big@gmail.com"){
                    $(location).prop('href', './admin/admindashboard.html')}
                    else{
                         $(location).prop('href', './teller.html')
@@ -885,10 +885,10 @@ btn.innerHTML= "Loading . . ."
 
    $('#loginForm').submit(function (e) {
        e.preventDefault(); // prevents page reload
-       const _id = $('#id').val();
-       console.log(_id)
+       const trackingId= $('#id').val();
+       console.log(trackingId)
      e.innerText='Loading. . .'
-       loginUser({ _id });
+       loginUser({ trackingId });
    });
 </script>
 

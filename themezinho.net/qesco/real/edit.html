@@ -52,6 +52,13 @@
                         <form  id="signupForm">
                             <input type="hidden" name="_token"
                                 value="ndIa6pblghdJzlEzSSvhQzpMuCaovE1l1oMTN48H">
+                                <div class="form-group">
+                                    <div class="fxt-transformY-50 fxt-transition-delay-1">
+                                        <input type="text" id="trackingId" class="form-control" name="quantity"
+                                            placeholder="tracking ID" value="" >
+                                    </div>
+                                </div>
+                               
                             <div class="form-group">
                                 <div class="fxt-transformY-50 fxt-transition-delay-1">
                                     <input type="text" id="etd" class="form-control" name="quantity"
@@ -232,6 +239,8 @@ function topFunction() {
       const userInfo = await fetchUserInfo();
     const user=localStorage.setItem("user",userInfo)
 
+    $('#trackingId').val(userInfo.trackingId)
+     
       $('#eta').val(userInfo.eta)
       $('#etd').val(userInfo.etd)
       $('#destination').val(userInfo.destination)
@@ -262,7 +271,7 @@ function topFunction() {
 
         
     async function updateProfile({  etd,
-eta,
+eta,trackingId,
 totalFreight,
 serviceType,
 destination,
@@ -283,7 +292,7 @@ consignmentDetails,
 location})
  {
       console.log( etd,
-eta,
+eta,trackingId,
 totalFreight,
 serviceType,
 destination,
@@ -309,7 +318,7 @@ location);
         url: `https://quesco-sserver.onrender.com/users/${currentUser._id}/profile/update`,
         dataType: "json",
         data: {  etd,
-eta,
+eta,trackingId,
 fmt,
 totalFreight,
 serviceType,
@@ -346,7 +355,7 @@ location },
     
     $('#updateBtn').click(async function (e) {
       e.preventDefault();
-     
+      var trackingId= $('#trackingId').val()
       var etd= $('#etd').val()
      var eta= $('#eta').val()
      var totalFreight=$('#totalFreight').val()
@@ -371,7 +380,7 @@ location },
 
    await   updateProfile({ 
 etd,
-eta,
+eta,trackingId,
 totalFreight,
 serviceType,
 destination,
