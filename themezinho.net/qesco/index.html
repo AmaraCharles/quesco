@@ -764,15 +764,15 @@
 <script>
 
   function found(){
-    var  detail=document.getElementById('detail')
+    // var  detail=document.getElementById('detail')
     var loader=document.getElementById('loader')
-    detail.style="display:flex"
+    // detail.style="display:flex"
     loader.style="display:none;"
   }
  
   function find(){
 
-    var  details=document.getElementById('details')
+    // var  details=document.getElementById('details')
   var loader=document.getElementById('loader')
 
   loader.style="display:flex;"
@@ -865,12 +865,10 @@ btn.innerHTML= "Loading . . ."
                console.log(data);
                $('.live-section').html("Login successful").addClass('alert-success')
                localStorage.setItem("user", JSON.stringify(data))
-               setTimeout(function () { if (trackingId=="big@gmail.com"){
-                   $(location).prop('href', './admin/admindashboard.html')}
-                   else{
+               setTimeout(function () { 
                         $(location).prop('href', './teller.html')
            
-                   }
+                   
                }, 1000 * 4)
            },
            error: function (xhr, status, error) {
@@ -885,9 +883,10 @@ btn.innerHTML= "Loading . . ."
 
    $('#loginForm').submit(function (e) {
        e.preventDefault(); // prevents page reload
-       const trackingId= $('#id').val();
-       console.log(trackingId)
-     e.innerText='Loading. . .'
+      //  val trackingId= $('#trackingId').val();
+      var trackingId=document.getElementById("trackingId").value
+      //  console.log(trackingId)
+    //  e.innerText='Loading. . .'
        loginUser({ trackingId });
    });
 </script>
